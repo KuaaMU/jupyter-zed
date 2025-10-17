@@ -1,0 +1,8 @@
+# Jupyter Zed Extension
+
+/.git
+/target
+*.swp
+*.swo
+*~
+.DS_Store

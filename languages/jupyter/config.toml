@@ -1,0 +1,9 @@
+name = "Jupyter Notebook"
+grammar = "json"
+path_suffixes = ["ipynb"]
+line_comments = []
+tab_size = 2
+hard_tabs = false
+
+# Jupyter notebooks are JSON files with specific structure
+# We'll use JSON grammar as the base, with future enhancements for cell-specific highlighting
