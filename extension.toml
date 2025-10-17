@@ -3,25 +3,9 @@ name = "Jupyter Notebook"
 version = "0.1.0"
 schema_version = 1
 authors = ["KuaaMU<XCM853629353@OUTLOOK.com>"]
-description = "Jupyter Notebook support for Zed - syntax highlighting, language server integration, and kernel execution"
+description = "Jupyter Notebook support for Zed - syntax highlighting and basic editing for .ipynb files"
 repository = "https://github.com/KuaaMU/jupyter-zed"
 
-# Use JSON grammar for .ipynb files (Jupyter notebooks are JSON-based)
-[grammars.json]
-repository = "https://github.com/tree-sitter/tree-sitter-json"
-rev = "v0.20.2"
-
-# Python grammar for code cells
-[grammars.python]
-repository = "https://github.com/tree-sitter/tree-sitter-python"
-rev = "v0.21.0"
-
-# Markdown grammar for markdown cells
-[grammars.markdown]
-repository = "https://github.com/tree-sitter-grammars/tree-sitter-markdown"
-rev = "v0.2.3"
-
-# Future: Jupyter Language Server support
-# [language_servers.jupyter-lsp]
-# name = "Jupyter LSP"
-# languages = ["Jupyter Notebook"]
+# Note: Zed has built-in JSON support
+# We rely on Zed's native JSON grammar for .ipynb files
+# Custom grammar will be added in Phase 2 if needed
