@@ -1,11 +1,11 @@
 id = "jupyter"
 name = "Jupyter Notebook"
-version = "0.1.0"
+version = "0.1.1"
 schema_version = 1
 authors = ["KuaaMU<XCM853629353@OUTLOOK.com>"]
-description = "Jupyter Notebook support for Zed - syntax highlighting and basic editing for .ipynb files"
+description = "Jupyter Notebook JSON Editor - Enhanced editing for .ipynb files with syntax highlighting and structure validation"
 repository = "https://github.com/KuaaMU/jupyter-zed"
 
-# Note: Zed has built-in JSON support
-# We rely on Zed's native JSON grammar for .ipynb files
-# Custom grammar will be added in Phase 2 if needed
+# This extension provides JSON editing capabilities for Jupyter Notebook files.
+# Full notebook features (cell rendering, execution) require Zed Notebook API support.
+# See: https://github.com/zed-industries/zed/issues/17325

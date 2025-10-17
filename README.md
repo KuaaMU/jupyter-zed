@@ -2,21 +2,38 @@
 
 English | [简体中文](README.zh-CN.md)
 
-This extension adds Jupyter Notebook (`.ipynb`) support to the [Zed editor](https://zed.dev/).
+A **Jupyter Notebook JSON Editor** for the [Zed editor](https://zed.dev/). This extension provides enhanced editing capabilities for `.ipynb` files as structured JSON documents.
 
-## Features
+> **Note**: This extension is positioned as a JSON editor for notebook files. Full notebook features (cell rendering, code execution, markdown preview) require VS Code-style Notebook API support in Zed, which is tracked in [zed#17325](https://github.com/zed-industries/zed/issues/17325).
 
-### Current (v0.1.0)
+## Current Features (v0.1.1)
+
 - ✅ **File Type Recognition**: Automatic detection of `.ipynb` files
-- ✅ **Syntax Highlighting**: JSON-based highlighting using Zed's built-in support
-- ✅ **Basic Editing**: Bracket matching, auto-indentation for notebook structure
-- ✅ **Lightweight**: No external grammar downloads required
+- ✅ **Enhanced JSON Syntax Highlighting**:
+  - Jupyter-specific keywords (`cell_type`, `execution_count`, `metadata`)
+  - Cell type values (`code`, `markdown`, `raw`)
+  - Output types (`stream`, `display_data`, `execute_result`)
+- ✅ **Smart Editing**:
+  - Bracket matching and auto-closing (`{}`, `[]`, `""`)
+  - Context-aware indentation for nested structures
+  - JSON structure validation
+- ✅ **Notebook Structure Support**:
+  - Parse and validate notebook format (nbformat v4)
+  - Cell type recognition
+  - Metadata extraction
+- ✅ **Lightweight**: No external dependencies or downloads required
 
-### Planned Features
-- 🔄 **Phase 2**: Enhanced syntax highlighting for code cells, markdown cells, and outputs
-- 🔄 **Phase 3**: Jupyter Language Server integration
-- 🔄 **Phase 3**: Kernel connection and code execution
-- 🔄 **Phase 3**: Interactive debugging support
+## What This Extension Does NOT Provide
+
+Due to current limitations of Zed's extension API:
+
+- ❌ **Cell-based UI** - Notebooks display as JSON, not visual cells
+- ❌ **Code Execution** - Cannot run Python/R code or connect to kernels
+- ❌ **Markdown Rendering** - Markdown cells shown as JSON strings
+- ❌ **Output Display** - Cell outputs shown as JSON, not rendered
+- ❌ **Interactive Features** - No variable viewer, debugging, or widgets
+
+For these features, use [VS Code](https://code.visualstudio.com/) with the Jupyter extension or [JupyterLab](https://jupyter.org/).
 
 ## Installation
 
@@ -35,31 +52,106 @@ This extension adds Jupyter Notebook (`.ipynb`) support to the [Zed editor](http
 
 ## Usage
 
-Simply open any `.ipynb` file in Zed, and the extension will automatically provide syntax highlighting and basic editing features.
+This extension is designed for **editing notebook structure and metadata**, not for interactive data science workflows.
+
+### Good Use Cases
+
+- ✅ Manually editing notebook metadata
+- ✅ Reviewing notebook file structure
+- ✅ Batch processing notebooks as JSON (with jq or similar tools)
+- ✅ Version control operations on notebooks
+- ✅ Debugging notebook format issues
+
+### Not Suitable For
+
+- ❌ Running code cells interactively
+- ❌ Data exploration and visualization
+- ❌ Reading markdown documentation in notebooks
+- ❌ Viewing cell outputs
+
+**Recommendation**: For interactive notebook work, use this extension alongside JupyterLab or VS Code. Use Zed when you need to directly manipulate the notebook's JSON structure.
+
+## Future Roadmap
+
+### Waiting on Zed Core Features
+
+The following features **cannot be implemented** until Zed adds Notebook API support ([zed#17325](https://github.com/zed-industries/zed/issues/17325)):
+
+- 🔮 **Cell-based Rendering**: Visual cell UI (like VS Code/JupyterLab)
+- 🔮 **Code Execution**: Run code through Jupyter kernels
+- 🔮 **Markdown Preview**: Render markdown cells
+- 🔮 **Output Rendering**: Display plots, tables, images
+- 🔮 **Interactive Widgets**: IPywidgets support
+
+### Possible Near-term Enhancements
+
+Features that could be added with current Zed API:
+
+- 🔄 **Code Folding**: Collapse/expand cells in JSON view
+- 🔄 **Outline View**: Navigate between cells
+- 🔄 **Cell Commands**: Slash commands for common operations
+- 🔄 **Format Validation**: Enhanced error checking
+
+### Help Wanted
+
+If you want full notebook support in Zed:
+- 👍 Upvote [zed#17325](https://github.com/zed-industries/zed/issues/17325)
+- 💬 Share your use cases in that issue
+- 🤝 Contribute to Zed's core to help implement Notebook API
 
 ## Development Roadmap
 
-### Phase 1: Basic Support ✅ (Current)
-- File type recognition
-- JSON-based syntax highlighting
-- Basic editor configuration
+### ✅ Phase 1: JSON Editor Foundation (Completed)
+- File type recognition for `.ipynb` files
+- Enhanced JSON syntax highlighting with Jupyter-specific keywords
+- Bracket matching and auto-indentation
+- Notebook structure parsing and validation
 
-### Phase 2: Enhanced Experience (Planned)
-- Custom syntax highlighting for different cell types
-- Code folding support
-- Notebook outline view
+### 🔄 Phase 2: Editor Enhancements (Possible with Current API)
+- Code folding for cells
+- Outline/navigation view
+- Custom slash commands
+- Better error diagnostics
 
-### Phase 3: Full Integration (Planned)
-- Jupyter Language Server support
-- Kernel connection and management
-- Cell execution
-- Interactive outputs
-- Debugging capabilities
+### 🔮 Phase 3: Full Notebook Experience (Blocked)
+**Requires**: Zed Notebook API ([zed#17325](https://github.com/zed-industries/zed/issues/17325))
+
+Once Zed implements a Notebook API similar to VS Code, we can add:
+- Visual cell-based editor
+- Code execution with kernel support
+- Markdown rendering
+- Rich output display
+- Interactive debugging
+
+## Technical Details
+
+### Architecture
+
+This extension uses:
+- **Tree-sitter JSON** for syntax parsing
+- **Zed Extension API 0.6.0** for language integration
+- **Rust + WebAssembly** for extension runtime
+- **Serde** for notebook structure validation
+
+### File Format
+
+Jupyter Notebooks (`.ipynb`) are JSON files following the [nbformat specification](https://nbformat.readthedocs.io/). This extension understands:
+- nbformat 4.x (current standard)
+- Cell types: code, markdown, raw
+- Metadata structures
+- Output formats
 
 ## Requirements
 
-- Zed editor v0.100.0 or later
-- (Phase 3) Python 3.8+ with Jupyter installed for kernel execution
+- Zed editor v0.160.0 or later
+- No additional dependencies
+
+## Known Limitations
+
+1. **No Visual Cells**: Notebooks are displayed as formatted JSON
+2. **No Code Execution**: Use JupyterLab, VS Code, or `jupyter notebook` for running code
+3. **No Output Rendering**: Cell outputs appear as JSON data
+4. **Large Files**: Very large notebooks (>10MB) may be slow to edit
 
 ## Contributing
 

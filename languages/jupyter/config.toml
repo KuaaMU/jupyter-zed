@@ -2,8 +2,23 @@ name = "Jupyter Notebook"
 grammar = "json"
 path_suffixes = ["ipynb"]
 line_comments = []
+block_comment = ["/*", "*/"]
 tab_size = 2
 hard_tabs = false
+
+# Bracket pairs for better editing experience
+brackets = [
+  { start = "{", end = "}", close = true, newline = true },
+  { start = "[", end = "]", close = true, newline = true },
+  { start = "(", end = ")", close = true, newline = true },
+  { start = "\"", end = "\"", close = true, newline = false, not_in = ["string"] }
+]
+
+# Auto-closing pairs
+autoclose_before = ";:.,=}])\""
+
+# Word characters for Jupyter notebooks
+word_characters = ["_"]
 
 # Jupyter notebooks are JSON files with specific structure
 # We'll use JSON grammar as the base, with future enhancements for cell-specific highlighting
