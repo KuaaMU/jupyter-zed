@@ -1,74 +1,73 @@
-# Jupyter Notebook Extension for Zed
+# 📚 项目文档
 
-English | [简体中文](README.zh-CN.md)
+## 文档结构
 
-This extension adds Jupyter Notebook (`.ipynb`) support to the [Zed editor](https://zed.dev/).
+本项目包含以下文档：
 
-## Features
+### 📄 根目录文档
 
-### Current (v0.1.0)
-- ✅ **File Type Recognition**: Automatic detection of `.ipynb` files
-- ✅ **Syntax Highlighting**: JSON-based highlighting with Jupyter-specific enhancements
-- ✅ **Basic Editing**: Bracket matching, auto-indentation for notebook structure
+1. **README.md** / **README.zh-CN.md**
+   - 项目介绍和功能说明
+   - 安装指南
+   - 快速开始
+   - 常见问题
 
-### Planned Features
-- 🔄 **Phase 2**: Enhanced syntax highlighting for code cells, markdown cells, and outputs
-- 🔄 **Phase 3**: Jupyter Language Server integration
-- 🔄 **Phase 3**: Kernel connection and code execution
-- 🔄 **Phase 3**: Interactive debugging support
+### 📁 Docs 目录
 
-## Installation
+2. **QUICKSTART.md** / **QUICKSTART.zh-CN.md**
+   - 详细的安装步骤
+   - 编译指南
+   - Git 提交流程
+   - 发布到 Zed 扩展市场的完整步骤
+   - 调试技巧
+   - 常见问题解答
 
-### From Zed Extensions (Coming Soon)
-1. Open Zed
-2. Press `cmd+shift+p` (Mac) or `ctrl+shift+p` (Windows/Linux)
-3. Search for "zed: extensions"
-4. Search for "Jupyter Notebook"
-5. Click Install
+3. **DEVELOPMENT.md**
+   - 项目结构说明
+   - 开发环境配置
+   - 测试方法
+   - 阶段 2 和 阶段 3 的开发计划
 
-### Development Installation
-1. Clone this repository
-2. In Zed, open the extensions view (`cmd+shift+p` → "zed: extensions")
-3. Click "Install Dev Extension"
-4. Select the `jupyter-zed` directory
+4. **PROJECT.zh-CN.md**
+   - 完整的文件清单
+   - 技术实现细节
+   - 三阶段开发路线图
+   - 代码统计
+   - Git 工作流程
 
-## Usage
+## 阅读顺序建议
 
-Simply open any `.ipynb` file in Zed, and the extension will automatically provide syntax highlighting and basic editing features.
+### 🚀 新用户（快速上手）
+1. README.zh-CN.md - 了解项目
+2. QUICKSTART.zh-CN.md - 立即安装和测试
 
-## Development Roadmap
+### 🛠️ 开发者（深入开发）
+1. README.zh-CN.md - 项目概览
+2. QUICKSTART.zh-CN.md - 安装和基础使用
+3. DEVELOPMENT.md - 开发指南
+4. PROJECT.zh-CN.md - 技术细节
 
-### Phase 1: Basic Support ✅ (Current)
-- File type recognition
-- JSON-based syntax highlighting
-- Basic editor configuration
+### 📦 发布者（准备发布）
+1. QUICKSTART.zh-CN.md 的"发布到 Zed 扩展市场"部分
+2. 确保所有文档更新
+3. 检查 LICENSE 和 README
 
-### Phase 2: Enhanced Experience (Planned)
-- Custom syntax highlighting for different cell types
-- Code folding support
-- Notebook outline view
+## 文档状态
 
-### Phase 3: Full Integration (Planned)
-- Jupyter Language Server support
-- Kernel connection and management
-- Cell execution
-- Interactive outputs
-- Debugging capabilities
+- ✅ 所有文档已更新到最新状态
+- ✅ 删除了冗余和临时文件
+- ✅ 内容反映当前实现（使用 Zed 内置 JSON 支持）
+- ✅ 中英文档齐全
 
-## Requirements
+## 快速链接
 
-- Zed editor v0.100.0 or later
-- (Phase 3) Python 3.8+ with Jupyter installed for kernel execution
+| 需求 | 文档 |
+|------|------|
+| 了解项目 | [README.zh-CN.md](../README.zh-CN.md) |
+| 安装使用 | [QUICKSTART.zh-CN.md](QUICKSTART.zh-CN.md) |
+| 开发指南 | [DEVELOPMENT.md](DEVELOPMENT.md) |
+| 技术细节 | [PROJECT.zh-CN.md](PROJECT.zh-CN.md) |
 
-## Contributing
+---
 
-Contributions are welcome! Please feel free to submit issues or pull requests.
-
-## License
-
-Licensed under the MIT License. See [LICENSE](LICENSE) for details.
-
-## Acknowledgments
-
-- Built with the [Zed Extension API](https://github.com/zed-industries/zed)
-- Uses [Tree-sitter JSON](https://github.com/tree-sitter/tree-sitter-json) for parsing
+**最后更新：** 2025-10-17

@@ -8,8 +8,9 @@
 
 ### 当前版本 (v0.1.0)
 - ✅ **文件类型识别**: 自动识别 `.ipynb` 文件
-- ✅ **语法高亮**: 基于 JSON 的语法高亮，包含 Jupyter 特定增强
+- ✅ **语法高亮**: 基于 Zed 内置 JSON 支持的语法高亮
 - ✅ **基础编辑**: 括号匹配、自动缩进等基础编辑功能
+- ✅ **轻量级**: 无需下载额外的 grammar，使用 Zed 原生支持
 
 ### 计划中的功能
 - 🔄 **阶段 2**: 增强的语法高亮（代码单元格、Markdown 单元格、输出内容）
@@ -64,17 +65,14 @@
 ## 🛠️ 技术实现
 
 ### 当前实现
-- 使用 Tree-sitter JSON grammar 解析 `.ipynb` 文件
-- 自定义语法高亮规则识别 Jupyter 特定字段
+- 使用 Zed 内置的 JSON grammar 解析 `.ipynb` 文件
+- 自定义语言配置识别 Jupyter Notebook 文件类型
 - Rust + WebAssembly 扩展架构
 
 ### 未来计划
-```toml
-# 阶段 3：Language Server 配置示例
-[language_servers.jupyter-lsp]
-name = "Jupyter Language Server"
-languages = ["Jupyter Notebook"]
-```
+- **Phase 2**: 自定义语法高亮规则，增强 Jupyter 特定字段显示
+- **Phase 3**: Jupyter Language Server 集成
+- **Phase 3**: 内核连接和代码执行
 
 ## 📖 快速开始
 
