@@ -1,5 +1,7 @@
 # Quick Start Guide - Jupyter Zed Extension
 
+English | [简体中文](QUICKSTART.zh-CN.md)
+
 ## 🎉 扩展已创建完成！
 
 您的 Jupyter 扩展现在已经准备好进行测试了。
