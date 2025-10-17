@@ -2,6 +2,7 @@
 
 /.git
 /target
+/grammars
 *.swp
 *.swo
 *~
